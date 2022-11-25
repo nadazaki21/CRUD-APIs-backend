@@ -7,7 +7,7 @@ function createBDcall(bdcall){
 
 
 function getAllBDcall(){
-    return knex("bdcall").select(bdcall);
+    return knex("bdcall").select(); // add between brackets what you want to show 
 };
 
 
