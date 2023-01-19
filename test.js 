@@ -1,0 +1,26 @@
+const courses = [
+    { id: 1 , name : 'course1'},
+    { id: 2 , name : 'course2'},
+    { id: 3 , name : 'course3'},
+];
+
+app.get('/api/courses1', (req,res) => {
+    res.send(courses);
+});
+
+app.post('/api/courses', (req,res) => {
+    const new_course = {
+        id: courses.length +1,
+        name: req.body.name
+
+    };
+    courses.push(new_course);
+    res.send(new_course);
+
+});
+
+// app.post("/bdcall1", async (req,res) => {
+//     // const results =await db.createBDcall(req.body);
+//     // res.status(201).json({id: results[0]});
+//     res.send("this post reqquest ir actually working ");
+// });
