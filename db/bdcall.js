@@ -1,5 +1,14 @@
 const knex = require ("./knex.js");
 
+const { json } = require("body-parser");
+const bodyParser = require('body-parser');
+
+app.use(express.json());
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
+
+
+
 function createBDcall(bdcall){
    return knex("bdcall").insert(bdcall);
 };
@@ -17,19 +26,63 @@ function SelectBDcall(id){
 };
 
 
+function viewContentBDcall(id){
+    return knex("bdcall").where("call_id",id).select("call_content");
+  };
+  
+
 function deleteBDcall(id){
     return knex("bdcall").where("call_id",id).del();
 };
+
+function deleteALLBDcall(id){
+    return knex("bdcall").select().del();
+};
+
 
 function updateBDcall(id,bdcall){
     return knex("bdcall").where("call_id",id).update(bdcall);
 };
 
 
+function viewUnresponedBDcall(){
+
+    return knex("bdcall").where("response",null).select("call_id");
+    
+}
+
+
+function getCount(){
+    
+    return knex("bdcall").count("call_id");
+
+    
+}
+
+function printCount(){
+
+    // const count =getCount();
+    // res.json(count[0]['count(`call_id`)']);
+
+    count = getCount().json ;
+    console.log(count);
+    result = count['count(`call_id`)'];
+    return result; 
+}
+
+
+
+
+
 module.exports= {
    createBDcall,
    getAllBDcall,
+   getCount,
+   deleteALLBDcall,
+   printCount,
+   viewContentBDcall,
    SelectBDcall,
+   viewUnresponedBDcall,
    deleteBDcall,
    updateBDcall,
    

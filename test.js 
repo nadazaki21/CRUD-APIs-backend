@@ -1,3 +1,7 @@
+pkill -f node 
+
+
+
 const courses = [
     { id: 1 , name : 'course1'},
     { id: 2 , name : 'course2'},
@@ -24,3 +28,37 @@ app.post('/api/courses', (req,res) => {
 //     // res.status(201).json({id: results[0]});
 //     res.send("this post reqquest ir actually working ");
 // });
+
+
+
+/ console.log($row.c)
+    // //const j = JSON.stringify(row);
+
+    // var k = JSON.parse(row);
+
+    
+    // //number = row.json.getInt("count(`call_id`)")
+    // var values = Object.keys(row).map(function ("count") { return obj[key]; });
+    // var values = Object.values(row);
+
+    // ['count(`id`)']
+
+
+
+    // var json = `{ "foo": 1, "bar": 2, "baz": 3 }`;
+// var obj = JSON.parse(json);
+// var values = Object.values(obj);
+// console.log(values);
+
+
+
+
+app.get("/testo", async (req,res) => { 
+
+    var json = `{ "foo": 1, "bar": 2, "baz": 3 }`;
+    var obj = JSON.parse(json);
+    var values = Object.values(obj);
+    console.log(values);
+
+    
+});
