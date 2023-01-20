@@ -62,3 +62,20 @@ app.get("/testo", async (req,res) => {
 
     
 });
+
+
+
+app.get("/count", async (req,res) => {  // this function prints the number of rcords in th database 
+   
+    console.log(db.printCount());
+    
+    
+   
+});
+
+
+
+app.post("/test", async (req,res) =>{
+    
+    res.send("this post reqquest ir actually working ");
+});

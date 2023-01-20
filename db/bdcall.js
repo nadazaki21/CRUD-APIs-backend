@@ -3,10 +3,6 @@ const knex = require ("./knex.js");
 const { json } = require("body-parser");
 const bodyParser = require('body-parser');
 
-app.use(express.json());
-app.use(bodyParser.urlencoded({extended: false}));
-app.use(bodyParser.json());
-
 
 
 function createBDcall(bdcall){
@@ -59,16 +55,16 @@ function getCount(){
     
 }
 
-function printCount(){
+// function printCount(){
 
-    // const count =getCount();
-    // res.json(count[0]['count(`call_id`)']);
+//     // const count =getCount();
+//     // res.json(count[0]['count(`call_id`)']);
 
-    count = getCount().json ;
-    console.log(count);
-    result = count['count(`call_id`)'];
-    return result; 
-}
+//     count = getCount().json. ;
+//     console.log(count);
+//     result = count;
+//     return result; 
+// }
 
 
 
@@ -79,7 +75,6 @@ module.exports= {
    getAllBDcall,
    getCount,
    deleteALLBDcall,
-   printCount,
    viewContentBDcall,
    SelectBDcall,
    viewUnresponedBDcall,
